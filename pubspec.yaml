@@ -1,0 +1,10 @@
+name: packagenator
+version: 0.0.1
+author: Alexander Ewetumo<trinoxf@gmail.com>
+description: providing clean offline and online dart package management
+homepage: http://github.com/influx6/packagenator.dart
+dependencies:
+  hub: any
+  guardedfs: any
+  streamable: any
+
