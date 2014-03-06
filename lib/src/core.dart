@@ -156,7 +156,8 @@ class Core{
                 commander.fire('dir',[paths.join(dir.absolutePath,'web'),dir.absolutePath]);
               });
 
-
+              
+              print('$name project folder created!');
           });
             
         });
