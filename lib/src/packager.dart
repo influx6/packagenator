@@ -1,4 +1,4 @@
-part of packagenator;
+part of packagenator.core;
 
 class Packager{
 	Versionator versions = Versionator.create();
@@ -10,8 +10,10 @@ class Packager{
 	static String packageStore = paths.join(Packager.penv('HOME'),'dart_packages');
 	static fs.GuardedFS packages = fs.GuardedFS.create(Packager.packageStore,false);
 	static fs.GuardedFS current = fs.GuardedFS.create('.',false);
+  static String scriptRoot = paths.normalize(paths.join(Platform.script.toFilePath(),'../..'));
+	static fs.GuardedFS templates = fs.GuardedFS.create(paths.join(Packager.scriptRoot,'./lib/src/templates'),true);
 
-	static Packager findInstalled(String name){
+	static Future findInstalled(String name){
 		return Packager.packages.fsCheck(paths.join(Packager.packageStore,name)).then((path){
 			return Packager.create(Packager.packages.Dir(name));
 		});
@@ -26,7 +28,9 @@ class Packager{
 	Future useVersion(String ver){
 		this.versions.validateVersion(ver).then((f){
 			if(f.isEmpty) return new Future.error('NotValid');
-			this.linker.use(new Future.value(this.dir.createNewDir(Enums.last(f))));
+			this.dir.then((d){
+		     this.linker.use(new Future.value(d.createNewDir(Enums.last(f))));
+			});
 		});
 	}
 
@@ -35,7 +39,7 @@ class Packager{
 	}
 
 	void endSession(){
-		return Funcs.when(Valids.exists(this.dir),(){
+		return Funcs.when(Valids.exist(this.dir),(){
 			this.dir = null;
 			this.versions = null;
 		},(){

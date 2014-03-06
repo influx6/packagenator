@@ -17,4 +17,6 @@ void main(){
 	});
 
 	prompt.boot();
+
+	prompt.shutdown(true);
 }

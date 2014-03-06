@@ -5,12 +5,12 @@ import 'package:packagenator/packagenator.dart';
 
 void main(){
 
-	var pack = Packager.create();
-	var req = Requestor.create(pack);
+	var req = Requestor.create();
 
 	req.use({
 		'name':'requestor',
 		'version':'0.0.1',
+		"install_dir":'./packages/',
 		'depends':{
 			"socketire":{
 				'type':'pub',
@@ -21,9 +21,9 @@ void main(){
 				'url': 'https://pub.dart.com/packages/ds',
 				'version': '> 0.1.2'
 			},
-			'hub':{
-				'type':'path',
-				'url': '../../hub',
+			'juk':{
+				'type':'dartpath',
+				'url': '../hub',
 			},
 			'groupobject':{
 				'type': 'git',
@@ -33,4 +33,6 @@ void main(){
 	});
 
 	req.requestDependencies();
+	req.stream.on(print);
+
 }

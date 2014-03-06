@@ -1,0 +1,7 @@
+@IF EXIST "%~dp0\dart.exe" (
+  "%~dp0\dart.exe"  "@pack_path" %*
+) ELSE (
+  "@dart_path"  "@pack_path" %*
+)
+
+ 

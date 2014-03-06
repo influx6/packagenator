@@ -1,0 +1,16 @@
+{	  
+ 	  "name":"@name", 
+ 	 	 
+ 	 "description":"@description", 
+   
+ 	 "author":"@author <@email>",
+
+ 	 "version":"@version", 
+ 	 	 
+ 	 "license":"Mit", 
+ 	 	 
+ 	 "install_dir":"./packages", 
+ 	 	 
+ 	 "depends":{ 
+ 	 } 
+ }

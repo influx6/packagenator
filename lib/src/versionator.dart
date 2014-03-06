@@ -11,10 +11,24 @@ part of packagenator.core;
 	version will follow linux 3 digits minor signatur major.minor.minor i.e 0.0.1
 */
 
+final RegExp excessSpace = new RegExp(r'\s+');
 final RegExp _degree = new RegExp(r'(^[<|>]=?)?\s*([\d+\.*]+)');
 
 class Versionator{
 	Future<fs.GuardedDirectory> dir;
+
+	static bool validVersionNumber(String ver){
+		var state = _degree.hasMatch(ver);
+		if(!state) return false;
+
+		var find = _degree.firstMatch(ver);
+		var tag = find.group(1);
+		var region = find.group(2);
+
+		if(region.split('.').length > 3) return false;
+
+		return true;
+	}
 
 	static create() => new Versionator();
 

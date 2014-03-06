@@ -8,7 +8,9 @@ class Commandator{
 
 	static create() => new Commandator();
 
-	Commandator();
+	Commandator(){
+		this.add('default');
+	}
 
 	streams.Distributor command(String com) => this.commands.get(com);
 
@@ -23,7 +25,7 @@ class Commandator{
 	}
 
 	void fire(String command,List n){
-		if(!this.commands.has(command)) return null;
+		if(!this.commands.has(command)) return this.commands.get('default').emit(n);
 		this.commands.get(command).emit(n);
 	}
 

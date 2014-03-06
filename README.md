@@ -1,7 +1,8 @@
-# Spark-Templates
+# Packegnator
 
 ####Description: 
-   Provides template components for variety of template engines
+   The intention of Packagenator is to provide a simple resource installer based on a few preconditions,these is still an early beta
+   library with only support for offline directory linking as off now
 
     
 ######ThanksGiving    

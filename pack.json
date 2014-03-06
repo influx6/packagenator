@@ -1,0 +1,36 @@
+{	  
+ 	  "name":"Packagenator", 
+ 	 	 
+ 	 "description":"simple elegant library", 
+ 	 	 
+ 	 "version":"0.0.1", 
+ 	 	 
+ 	 "license":"Mit", 
+ 	 	 
+ 	 "install_dir":"./packages", 
+ 	 	 
+ 	 "depends":{ 
+		 	"socketire":{
+				"type":"pub",
+				"version": "> 0.1.2"
+			},
+			"ds":{
+				"type":"http",
+				"url": "https://pub.dart.com/packages/ds",
+				"version": "> 0.1.2"
+			},
+			"invocable":{
+				"type":"localpub",
+				"url": "https://pub.dart.com/packages/ds",
+				"version": "> 0.1.2"
+			},
+			"hubby":{
+				"type":"dartpath",
+				"url": "../hub"
+			},
+			"groupobject":{
+				"type": "git",
+				"url": "http://github.com/influx6/groupobject.dart.git"
+			}
+ 	 } 
+ }
