@@ -1,4 +1,4 @@
-# Packegnator
+# Packagenator
 
 ####Description: 
    The intention of Packagenator is to provide a simple resource installer based on a few preconditions,these is still an early beta
@@ -28,4 +28,4 @@
 ######ThanksGiving    
 All gratitude to God alone!
 ---------------------------------------------------------------------------------------------------
-http://github.com/influx6/packagenator.dart
+http://github.com/influx6/packagenator
