@@ -267,13 +267,17 @@ class Core{
 		commander.on('install',(n){
 
 			Packager.current.fsCheck('pack.json').then((n){
+        
+        Packager.current.Dir('packages').then((n){
 
-				var file = Packager.current.File('pack.json');
+          var file = Packager.current.File('pack.json');
 
-				file.readAsString().then((data){
-					requests.use(JSON.decode(data));
-					requests.requestDependencies();
-				});
+          file.readAsString().then((data){
+            requests.use(JSON.decode(data));
+            requests.requestDependencies();
+          });
+        
+        });
 
 			}).catchError((e){
 				print('pack.json file does not exists!');
