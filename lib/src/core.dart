@@ -28,7 +28,7 @@ class Core{
 		"version":"0.0.1",
 		"license":"mit",
 		"install_dir":"./packages",
-		"depends":"#depends"
+		"depends":{}
 	};
 
 	static Requestor _requests = Requestor.create();
@@ -302,22 +302,6 @@ class Core{
 					meta.update('description',finger('Description'));
 					meta.update('license',finger('License'));
 
-
-					var depmeta = {},depends = finger('Depends').toLowerCase();
-
-					var deps = depends.replaceAll(excessSpace,' ').split(excessSpace);
-
-					if(deps.length > 0) 
-						deps.forEach((d){
-							if(!words.hasMatch(d)) return null;
-							depmeta[d] = {
-								'type':null,
-								'url': null,
-								'version': null
-							};
-						});
-					
-					meta.update('depends',depmeta);
 					
 					var enc = JSON.encode(meta.storage).split(',').join(',\n')
 						.replaceAll('\\r','')
@@ -356,7 +340,6 @@ class Core{
 					return Versionator.validVersionNumber(n);
 				},'format must be in Major.Minor.Minor i.e 0.0.1 or 2.51.3');
 				prompt.optionalQuestion('Description','descript of library');
-				prompt.optionalQuestion('Depends','Format: dep1 dep2 dep3');
 
 
 				print('Answer the following!');
